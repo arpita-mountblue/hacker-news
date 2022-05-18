@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Hacker News</title>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+    <script src="app.js"></script>
+    <div ng-app="hackerNewsApp">
+      <div class="main_container">
+        <ul>
+          <li><img class="image" src="../image/Y image.png" /></li>
+          <li class="Heading"><a href="#/">Hacker News</a></li>
+          <li><a href="#new">new</a></li>
+          <li><a href="#past">past</a></li>
+          <li><a href="#comments">Comments</a></li>
+          <li><a href="#ask">ask</a></li>
+          <li><a href="#show">show</a></li>
+          <li><a href="#jobs">jobs</a></li>
+        </ul>
+      </div>
+      <ng-view></ng-view>
+    </div>
+  </body>
+</html>

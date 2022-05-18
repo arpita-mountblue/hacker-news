@@ -1,0 +1,16 @@
+<div ng-controller="hackerNewsData">
+  <div class="data_container">
+    <div ng-repeat="topstories in newsDetails">
+      <div class="story_container">
+        <div>
+          <p>{{topstories.serialNumber}}. {{topstories.title}}</p>
+          <p style="margin-left: 20px">
+            {{topstories.score}} points by {{topstories.by}} |
+            {{topstories.descendants}} comments
+          </p>
+        </div>
+      </div>
+    </div>
+    <button ng-click="moreItem()" style="margin-top: 50px">more...</button>
+  </div>
+</div>

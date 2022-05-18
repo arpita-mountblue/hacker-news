@@ -1,16 +1,23 @@
-<div ng-controller="hackerNewsData">
+<div ng-controller="hackerTopStoryData">
   <div class="data_container">
-    <div ng-repeat="topstories in newsDetails">
+    <div ng-repeat="topStories in newsDetails">
       <div class="story_container">
         <div>
-          <p>{{topstories.serialNumber}}. {{topstories.title}}</p>
-          <p style="margin-left: 20px">
-            {{topstories.score}} points by {{topstories.by}} |
-            {{topstories.descendants}} comments
+          <p>{{topStories.serialNumber}}. {{topStories.title}}</p>
+          <p style="margin-left: 25px; font-size: 20px; color: #998e9a">
+            {{topStories.score}} points by {{topStories.by}}
+            {{topStories.timeStamp}} | hide | {{topStories.descendants}}
+            comments
           </p>
         </div>
       </div>
     </div>
-    <button ng-click="moreItem()" style="margin-top: 50px">more...</button>
+    <button
+      ng-click="moreItem()"
+      class="more_button"
+      ng-if="newsDetails.length"
+    >
+      more...
+    </button>
   </div>
 </div>

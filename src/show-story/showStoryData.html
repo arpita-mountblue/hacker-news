@@ -1,0 +1,25 @@
+<div ng-controller="hackerAskStoryData">
+  <div class="data_container">
+    <p style="font-size: 20px; color: #998e9a">
+      Please read the rules. You can also browse the newest Show HNs.
+    </p>
+    <div ng-repeat="askStories in newsDetails">
+      <div class="story_container">
+        <div>
+          <p>{{askStories.serialNumber}}. {{askStories.title}}</p>
+          <p style="margin-left: 25px; font-size: 17px; color: #998e9a">
+            {{askStories.score}} points by {{askStories.by}}
+            {{askStories.timeStamp}} | {{askStories.descendants}} comments
+          </p>
+        </div>
+      </div>
+    </div>
+    <button
+      ng-click="moreItem()"
+      class="more_button"
+      ng-if="newsDetails.length"
+    >
+      more...
+    </button>
+  </div>
+</div>

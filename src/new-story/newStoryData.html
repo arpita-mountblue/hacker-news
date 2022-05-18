@@ -1,0 +1,22 @@
+<div ng-controller="hackerNewStoryData">
+  <div class="data_container">
+    <div ng-repeat="newStories in newsDetails">
+      <div class="story_container">
+        <div>
+          <p>{{newStories.serialNumber}}. {{newStories.title}}</p>
+          <p style="margin-left: 25px; font-size: 17px; color: #998e9a">
+            {{newStories.score}} points by {{newStories.by}}
+            {{newStories.timeStamp}} | hide | past | discuss
+          </p>
+        </div>
+      </div>
+    </div>
+    <button
+      ng-click="moreItem()"
+      class="more_button"
+      ng-if="newsDetails.length"
+    >
+      more...
+    </button>
+  </div>
+</div>

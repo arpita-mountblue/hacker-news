@@ -1,0 +1,18 @@
+<div ng-controller="askStoryCommentsData">
+    <div class="data_container">
+     <div class="storyData"> <p class="title">{{ids.title}}</p>
+    <p class="storyDataById">{{ids.score}} points by {{ids.by}} | hide | past | favorite | {{ids.descendants}} comments</p></div>
+      <textarea class="text_field"></textarea>
+     </br>
+      <button class="button">add comment</button>
+    
+      <div ng-repeat="comment in comments" class="comment_data_container">
+        <p style="color: #998e9a; font-size: 18px;"># {{comment.by}} | next[...]</p>
+       <!-- <p ng-bind-html = "{{comment.text}}"></p> -->
+  
+        <p style="font-size: 22px;">{{comment.text}}</p>
+        
+      </br>
+      </div>
+    </div>
+  </div>

@@ -8,6 +8,10 @@ app.config([
         templateUrl: "./top-story/topStoryData.html",
         controller: "hackerTopStoryData",
       })
+      .when("/topStoryComments/:id", {
+        templateUrl: "./top-story/comments/topStoryCommentsData.html",
+        controller: "topStoryCommentsData",
+      })
       .when("/new", {
         templateUrl: "./new-story/newStoryData.html",
         controller: "hackerNewStoryData",
@@ -16,9 +20,17 @@ app.config([
         templateUrl: "./ask-story/askStoryData.html",
         controller: "hackerAskStoryData",
       })
+      .when("/askStoryComments/:id", {
+        templateUrl: "./ask-story/comments/askStoryCommentsData.html",
+        controller: "askStoryCommentsData",
+      })
       .when("/show", {
         templateUrl: "./show-story/showStoryData.html",
         controller: "hackerShowStoryData",
+      })
+      .when("/showStoryComments/:id", {
+        templateUrl: "./show-story/comments/showStoryCommentsData.html",
+        controller: "showStoryCommentsData",
       })
 
       .otherwise("/hacker-news", {
@@ -35,6 +47,7 @@ app.controller("hackerTopStoryData", function ($scope, $http) {
   $scope.newsDetails = [];
   $scope.firstIndex = 0;
   $scope.lastIndex = 0;
+
   async function getIds() {
     let URL =
       "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty";
@@ -60,6 +73,7 @@ app.controller("hackerTopStoryData", function ($scope, $http) {
           )
           .then((res) => {
             let data = res.data;
+            // console.log(data);
 
             let date = new Date(data.time * 1000);
             let hours = date.getHours();
@@ -300,4 +314,85 @@ app.controller("hackerShowStoryData", function ($scope, $http) {
           });
       });
   };
+});
+
+//top story comments data
+
+app.controller("topStoryCommentsData", function ($scope, $http, $routeParams) {
+  $scope.comments = [];
+
+  const URL = `https://hacker-news.firebaseio.com/v0/item/${$routeParams.id}.json?print=pretty`;
+
+  //making a request to the api
+
+  $http.get(URL).then((response) => {
+    $scope.ids = response.data;
+    $scope.kids = response.data.kids;
+
+    console.log(response);
+    console.log($scope.kids);
+    $scope.kids.forEach((id, index) => {
+      $http
+        .get(
+          `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
+        )
+        .then((res) => {
+          $scope.comments[index] = res.data;
+        });
+    });
+  });
+});
+
+//ask story comments data
+
+app.controller("askStoryCommentsData", function ($scope, $http, $routeParams) {
+  $scope.comments = [];
+
+  const URL = `https://hacker-news.firebaseio.com/v0/item/${$routeParams.id}.json?print=pretty`;
+
+  //making a request to the api
+
+  $http.get(URL).then((response) => {
+    $scope.ids = response.data;
+    $scope.kids = response.data.kids;
+
+    console.log(response);
+    console.log($scope.kids);
+    $scope.kids.forEach((id, index) => {
+      $http
+        .get(
+          `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
+        )
+        .then((res) => {
+          $scope.comments[index] = res.data;
+        });
+    });
+  });
+});
+
+//show story comments data
+
+app.controller("showStoryCommentsData", function ($scope, $http, $routeParams) {
+  $scope.comments = [];
+
+  const URL = `https://hacker-news.firebaseio.com/v0/item/${$routeParams.id}.json?print=pretty`;
+
+  //making a request to the api
+
+  $http.get(URL).then((response) => {
+    $scope.ids = response.data;
+    $scope.kids = response.data.kids;
+
+    console.log(response);
+    console.log($scope.kids);
+    $scope.kids.forEach((id, index) => {
+      $http
+        .get(
+          `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
+        )
+        .then((res) => {
+          $scope.comments[index] = res.data;
+        });
+    });
+  });
 });

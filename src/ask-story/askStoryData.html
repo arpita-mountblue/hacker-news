@@ -6,7 +6,13 @@
           <p>{{askStories.serialNumber}}. {{askStories.title}}</p>
           <p style="margin-left: 25px; font-size: 17px; color: #998e9a">
             {{askStories.score}} points by {{askStories.by}}
-            {{askStories.timeStamp}} | {{askStories.descendants}} comments
+            {{askStories.timeStamp}} |
+            <a
+              href="#!/askStoryComments/{{askStories.id}}"
+              style="color: #998e9a"
+            >
+              {{askStories.descendants}} comments</a
+            >
           </p>
         </div>
       </div>

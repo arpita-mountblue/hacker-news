@@ -6,8 +6,12 @@
           <p>{{topStories.serialNumber}}. {{topStories.title}}</p>
           <p style="margin-left: 25px; font-size: 20px; color: #998e9a">
             {{topStories.score}} points by {{topStories.by}}
-            {{topStories.timeStamp}} | hide | {{topStories.descendants}}
-            comments
+            {{topStories.timeStamp}} | hide |
+            <a
+              href="#!/topStoryComments/{{topStories.id}}"
+              style="color: #998e9a"
+              >{{topStories.descendants}} comments</a
+            >
           </p>
         </div>
       </div>

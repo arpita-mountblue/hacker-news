@@ -36,8 +36,9 @@ li a {
   padding-right: 5px;
 }
 
-li a:focus {
-  color: white;
+.link a:link,
+.link a:focus {
+  color: #ffffff;
 }
 
 .image {
@@ -70,4 +71,34 @@ li a:focus {
   margin: 25px 20px;
   border: none;
   cursor: pointer;
+}
+
+.text_field {
+  margin: 30px 25px 15px 45px;
+  width: 700px;
+  height: 130px;
+  columns: 50;
+}
+
+button {
+  margin-left: 46px;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.title {
+  margin-top: 25px;
+}
+
+.storyData {
+  margin-left: 40px;
+}
+
+.storyDataById {
+  color: #998e9a;
+  font-size: 18px;
+}
+
+.comment_data_container {
+  margin-left: 40px;
 }
